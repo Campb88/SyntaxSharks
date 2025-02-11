@@ -1,0 +1,92 @@
+.stats-card {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: var(--gray-200);
+  border-radius: 10px;
+  height: 91px;
+  width: 279px;
+}
+
+.stats-card .card {
+  align-items: flex-start;
+  border-radius: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 11px;
+  padding: 15px;
+  position: relative;
+}
+
+.stats-card .today-s-sale {
+  color: var(--gray-500);
+  font-family: "Plus Jakarta Sans", Helvetica;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.00px;
+  line-height: 18px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.stats-card .bottom {
+  align-items: flex-end;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 249px;
+}
+
+.stats-card .price {
+  align-items: flex-end;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  position: relative;
+}
+
+.stats-card .element {
+  color: var(--gray-900);
+  font-family: var(--bold-21px-font-family);
+  font-size: var(--bold-21px-font-size);
+  font-style: var(--bold-21px-font-style);
+  font-weight: var(--bold-21px-font-weight);
+  letter-spacing: var(--bold-21px-letter-spacing);
+  line-height: var(--bold-21px-line-height);
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.stats-card .growth {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 4px;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.stats-card .text-wrapper {
+  color: var(--green-500);
+  font-family: var(--semi-bold-13px-font-family);
+  font-size: var(--semi-bold-13px-font-size);
+  font-style: var(--semi-bold-13px-font-style);
+  font-weight: var(--semi-bold-13px-font-weight);
+  letter-spacing: var(--semi-bold-13px-letter-spacing);
+  line-height: var(--semi-bold-13px-line-height);
+  margin-top: -1.00px;
+  position: relative;
+  text-align: right;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.stats-card .icon-outline-arrow {
+  height: 10px !important;
+  position: relative !important;
+  width: 10px !important;
+}
