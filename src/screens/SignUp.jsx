@@ -19,14 +19,12 @@ export const SignUp = () => {
           <div className="container">
             <div className="content">
               <div className="div">
-                <div className="heading">Let’s Travels together</div>
+                <div className="heading">Let’s Travel Together</div>
 
                 <p className="you-can-reach-us">
                   <span className="text-wrapper">
-                    You can reach us anytime via{" "}
+                    Make an account and start sharing travel plans.
                   </span>
-
-                  <span className="span">hi@sample.com</span>
                 </p>
               </div>
 
@@ -34,23 +32,16 @@ export const SignUp = () => {
                 <div className="div">
                   <div className="input-field">
                     <div className="div-2">
-                      <div className="div-2">
-                        <input
-                          className="input"
-                          htmlFor="input-2"
-                          placeholder="Name"
-                          type="text"
-                        />
+                      <div className="label-2">Name</div>
 
-                        <div className="input-2">
-                          <div className="content-2">
-                            <input
-                              className="text"
-                              id="input-2"
-                              placeholder="Your name"
-                              type="text"
-                            />
-                          </div>
+                      <div className="input-2">
+                        <div className="content-2">
+                          <input
+                            className="text"
+                            id="input-name"
+                            placeholder="Your name"
+                            type="text"
+                          />
                         </div>
                       </div>
                     </div>
@@ -58,23 +49,16 @@ export const SignUp = () => {
 
                   <div className="input-field">
                     <div className="div-2">
-                      <div className="div-2">
-                        <input
-                          className="input"
-                          htmlFor="input-4"
-                          placeholder="Email"
-                          type="email"
-                        />
+                      <div className="label-2">Email</div>
 
-                        <div className="input-2">
-                          <div className="content-2">
-                            <input
-                              className="text"
-                              id="input-4"
-                              placeholder="you@company.com"
-                              type="email"
-                            />
-                          </div>
+                      <div className="input-2">
+                        <div className="content-2">
+                          <input
+                            className="text"
+                            id="input-email"
+                            placeholder="you@company.com"
+                            type="email"
+                          />
                         </div>
                       </div>
                     </div>
@@ -82,29 +66,31 @@ export const SignUp = () => {
 
                   <div className="input-field">
                     <div className="div-2">
-                      <div className="div-2">
-                        <div className="label-2">Phone number</div>
+                      <div className="label-2">Password</div>
 
-                        <div className="input-3">
-                          <div className="dropdown">
-                            <div className="dropdown-text">US</div>
+                      <div className="input-2">
+                        <div className="content-2">
+                          <input
+                            className="text"
+                            id="input-pass"
+                            type="email"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                            <img
-                              className="chevron-down"
-                              alt="Chevron down"
-                              src="https://c.animaapp.com/ysurVnUL/img/chevron-down.svg"
-                            />
-                          </div>
+                  <div className="input-field">
+                    <div className="div-2">
+                      <div className="label-2">Phone number</div>
+                        <div className="input-2">
 
-                          <div className="text-input">
-                            {/* <div className="text-2">+1 (555) 000-0000</div> */}
+                          <div className="content-2">
                             <input
                               className="text"
                               id="phonenumber"
                               placeholder="+1 (555) 000-0000"
-                              type="number"
                             />
-                          </div>
                         </div>
                       </div>
                     </div>

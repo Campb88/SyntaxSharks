@@ -20,7 +20,7 @@ export const Desktop = () => {
               <p className="rareblocks">
                 <span className="text-wrapper">/</span>
 
-                <span className="span">rareblocks</span>
+                <span className="span">Shark Travels</span>
               </p>
             </div>
 
@@ -445,7 +445,7 @@ export const Desktop = () => {
                 <p className="rareblocks">
                   <span className="text-wrapper">/</span>
 
-                  <span className="span">rareblocks</span>
+                  <span className="span">Shark Travels</span>
                 </p>
               </div>
 
