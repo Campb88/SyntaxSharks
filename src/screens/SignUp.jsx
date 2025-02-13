@@ -111,6 +111,7 @@ export const SignUp = () => {
 
               <div className="you-can-reach-us-2">Or Create Account with</div>
 
+             {/* Update these names later, Button is Apple Logo, Button1 is Google Logo, Logos1 is Facebook Logo. Also look into these logo codes later, seems really inefficient.*/}
               <div className="container-2">
                 <Button className="icon-instance-node" />
                 <Button1 className="button-1" />

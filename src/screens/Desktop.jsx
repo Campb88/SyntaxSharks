@@ -12,7 +12,6 @@ export const Desktop = () => {
           src="https://c.animaapp.com/QRJrUyPI/img/unsplash-t7k4aepoggk.png"
         />
 
-        <div className="rectangle" />
 
         <div className="frame">
           <div className="div">
@@ -50,12 +49,10 @@ export const Desktop = () => {
 
         <div className="frame-4">
           <div className="div-2">
-            <div className="text-in-planning">Traveling planning needs</div>
+            <div className="text-in-planning">Traveling Planning Needs?</div>
 
             <p className="p">
-              Lorem ipsum dolor sit amet consectetur. Lorem ullamcorper in
-              curabitur ultricies gravida euismod. Diam purus et montes duis
-              eget convallis congue. Arcu mollis ut.
+              We can help!<br />Join now to make plans and easily share them with others!
             </p>
           </div>
 
