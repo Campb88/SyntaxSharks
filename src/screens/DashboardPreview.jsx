@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import { StatsCard } from "../components/StatsCard/StatsCard";
 import { Icon1 } from "../icons/Icon1/Icon1";
 import { Icon4 } from "../icons/Icon4/Icon4";
@@ -13,8 +13,32 @@ import { TypeFiBellSize24ColorBlack } from "../icons/TypeFiBellSize24ColorBlack/
 import { TypeFiGridSize24ColorBlack } from "../icons/TypeFiGridSize24ColorBlack/TypeFiGridSize24ColorBlack";
 import { TypeFiUsersSize24ColorBlack } from "../icons/TypeFiUsersSize24ColorBlack/TypeFiUsersSize24ColorBlack";
 import "./dashboardpreview.css";
+import { useNavigate } from "react-router";
+import { Auth } from "@supabase/auth-ui-react";
+import { supabase } from "../../supabaseClient";
+
+
 
 export const DashboardPreview = () => {
+  const navigate = useNavigate();
+
+  // Remove any hash fragment (e.g., access token) from the URL on mount
+  useEffect(() => {
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, []);
+
+  // Sign out function
+  const handleSignOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    if (!error) {
+      navigate("/"); // Redirect to login/signup page after sign out
+    } else {
+      console.error("Error signing out:", error);
+    }
+  };
+
   return (
     <div className="dashboard-preview">
       <div className="feature-list">
@@ -174,7 +198,9 @@ export const DashboardPreview = () => {
           <div className="log-out">
             <LeftIcon className="left-icon" />
             <div className="layout">
-              <div className="label">Log out</div>
+              <button className="label" onClick={handleSignOut}>
+                Log out
+              </button>
             </div>
           </div>
         </div>
@@ -199,7 +225,6 @@ export const DashboardPreview = () => {
             <div className="group">
               <div className="overlap-group">
                 <div className="ellipse" />
-
                 <div className="text-wrapper-8">2</div>
               </div>
             </div>
@@ -218,7 +243,6 @@ export const DashboardPreview = () => {
       <div className="frame-5">
         <div className="title">
           <p className="p">here’s what’s happening with your store today</p>
-
           <div className="text-wrapper-9">Hey Mariana -</div>
         </div>
 
