@@ -14,30 +14,11 @@ import { TypeFiGridSize24ColorBlack } from "../icons/TypeFiGridSize24ColorBlack/
 import { TypeFiUsersSize24ColorBlack } from "../icons/TypeFiUsersSize24ColorBlack/TypeFiUsersSize24ColorBlack";
 import "./dashboardpreview.css";
 import { useNavigate } from "react-router";
-import { Auth } from "@supabase/auth-ui-react";
-import { supabase } from "../../supabaseClient";
 
 
 
 export const DashboardPreview = () => {
   const navigate = useNavigate();
-
-  // Remove any hash fragment (e.g., access token) from the URL on mount
-  useEffect(() => {
-    if (window.location.hash) {
-      window.history.replaceState(null, "", window.location.pathname);
-    }
-  }, []);
-
-  // Sign out function
-  const handleSignOut = async () => {
-    const { error } = await supabase.auth.signOut();
-    if (!error) {
-      navigate("/"); // Redirect to login/signup page after sign out
-    } else {
-      console.error("Error signing out:", error);
-    }
-  };
 
   return (
     <div className="dashboard-preview">
@@ -198,7 +179,7 @@ export const DashboardPreview = () => {
           <div className="log-out">
             <LeftIcon className="left-icon" />
             <div className="layout">
-              <button className="label" onClick={handleSignOut}>
+              <button className="label">
                 Log out
               </button>
             </div>
@@ -243,7 +224,7 @@ export const DashboardPreview = () => {
       <div className="frame-5">
         <div className="title">
           <p className="p">here’s what’s happening with your store today</p>
-          <div className="text-wrapper-9">Hey Mariana -</div>
+          <div className="text-wrapper-9">Hey Mariana </div>
         </div>
 
         <div className="stats">

@@ -36,9 +36,12 @@ export const Desktop = () => {
           </div>
 
           <div className="frame-3">
-            <div className="div-wrapper">
-              <div className="text-wrapper-3">Customer Login</div>
-            </div>
+
+            <button className="button-primary-with">
+              <span className="button-name-wrapper">
+                <Link to ="/login" className="button-name">Login</Link>
+              </span>
+            </button>
 
             <button className="button-primary-with">
               <span className="button-name-wrapper">
