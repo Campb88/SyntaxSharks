@@ -1,4 +1,4 @@
-// login.jsx
+
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,10 +12,9 @@ import { useDispatch } from "react-redux";
 import { login } from "../store/slices/authSlice";
 import "./signup.css";
 
-// Schema for login form
+// Schema for login form using identifier and password
 const loginSchema = z.object({
-  username: z.string().min(1, { message: "Username is required" }),
-  email: z.string().email({ message: "Invalid email format" }),
+  identifier: z.string().min(1, { message: "Email or Username is required" }),
   password: z.string().min(6, { message: "Password must be at least 6 characters" }),
 });
 
@@ -44,8 +43,8 @@ export const Login = () => {
       dispatch(login(result.user));
       toast.success(result.message);
 
-    //   CHANGE TO DASHBOARD AFTER TEST
-      navigate("/account");
+      // Navigate to dashboard (or account) after login
+      navigate("/dashboard");
     } catch (error) {
       toast.error(error.message || "An error occurred during login");
     }
@@ -82,30 +81,14 @@ export const Login = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="input-field">
                     <div className="div-2">
-                      <div className="label-2">Username</div>
+                      <div className="label-2">Email or Username</div>
                       <div className="input-2">
                         <div className="content-2">
                           <input
                             className="text"
-                            placeholder="Your username"
+                            placeholder="Enter your email or username"
                             type="text"
-                            {...register("username")}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="input-field">
-                    <div className="div-2">
-                      <div className="label-2">Email</div>
-                      <div className="input-2">
-                        <div className="content-2">
-                          <input
-                            className="text"
-                            placeholder="you@company.com"
-                            type="email"
-                            {...register("email")}
+                            {...register("identifier")}
                           />
                         </div>
                       </div>

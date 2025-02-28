@@ -1,11 +1,10 @@
-// server.js
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken"); 
+const jwt = require("jsonwebtoken");
 
 const app = express();
 app.use(cors());
@@ -20,12 +19,12 @@ mongoose
 // Define a User model
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
+  email:    { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });
 const User = mongoose.model("User", UserSchema);
 
-// Signup endpoint
+// Signup endpoint remains the same
 app.post("/api/signup", async (req, res) => {
   console.log("Received signup POST request");
   const { username, email, password } = req.body;
@@ -35,8 +34,8 @@ app.post("/api/signup", async (req, res) => {
   }
 
   // Check if user already exists by email or username
-  const userCheck1 = await User.findOne({ email: email });
-  const userCheck2 = await User.findOne({ username: username });
+  const userCheck1 = await User.findOne({ email });
+  const userCheck2 = await User.findOne({ username });
   if (userCheck1 || userCheck2) {
     return res.status(400).json({ error: "User already exists" });
   }
@@ -48,8 +47,8 @@ app.post("/api/signup", async (req, res) => {
     }
 
     const newUser = new User({
-      username: username,
-      email: email,
+      username,
+      email,
       password: hashedPassword,
     });
 
@@ -63,25 +62,34 @@ app.post("/api/signup", async (req, res) => {
   });
 });
 
-// Login endpoint
+// Modified Login endpoint using "identifier" (email or username)
 app.post("/api/login", async (req, res) => {
   console.log("Received login POST request");
-  const { username, email, password } = req.body;
-  if (!username || !email || !password) {
-    return res.status(400).json({ error: "All fields are required." });
+  const { identifier, password } = req.body;
+  
+  if (!identifier || !password) {
+    return res.status(400).json({ error: "Identifier and password are required." });
   }
 
   try {
-    // Find user by email and username
-    const user = await User.findOne({ email: email, username: username });
+    let user;
+    // Check if identifier looks like an email
+    if (identifier.includes("@")) {
+      user = await User.findOne({ email: identifier });
+    } else {
+      user = await User.findOne({ username: identifier });
+    }
+    
     if (!user) {
       return res.status(400).json({ error: "User not found" });
     }
+    
     // Compare the provided password with the hashed password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ error: "Invalid credentials" });
     }
+    
     // Generate a JWT token (expires in 1 hour)
     const tokenPayload = {
       username: user.username,

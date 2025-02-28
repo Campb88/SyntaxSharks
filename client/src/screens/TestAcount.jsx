@@ -6,7 +6,8 @@ const Account = () => {
   const { user } = useSelector((state) => state.auth);
 
   return (
-    <div className="account">
+    <>
+      <div className="account">
       <h1>Account Information</h1>
       <p>
         <strong>Username:</strong> {user.username}
@@ -15,6 +16,8 @@ const Account = () => {
         <strong>Email:</strong> {user.email}
       </p>
     </div>
+    </>
+    
   );
 };
 
