@@ -5,7 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
-// const jwt = require("jsonwebtoken"); // Optionally, if you want to generate tokens
+const jwt = require("jsonwebtoken"); 
 
 const app = express();
 app.use(cors());
@@ -82,10 +82,19 @@ app.post("/api/login", async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ error: "Invalid credentials" });
     }
-    // Optionally, you can generate a JWT token here if needed
+    // Generate a JWT token (expires in 1 hour)
+    const tokenPayload = {
+      username: user.username,
+      email: user.email,
+    };
+    const token = jwt.sign(tokenPayload, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+
     res.status(200).json({
       message: "Login successful",
-      user: { username: user.username, email: user.email },
+      token,
+      user: tokenPayload,
     });
   } catch (error) {
     console.error("Login error:", error);
