@@ -1,3 +1,4 @@
+/** @jsxImportSource react */
 import React from "react";
 import "./styles.css";
 
@@ -9,7 +10,7 @@ export const TypePrimaryStateWrapper = ({
   rightIcon,
   iconOnly,
   size,
-  className,
+  className = "",
   text = "Button",
 }) => {
   return (
