@@ -16,9 +16,8 @@ NPM INSTALLS:
 
     FOR ROOT: Concurrently
 
-
     FOR CLIENT: react react-hot-toast react-hook-form zod @hookform/resolvers @reduxjs/toolkit react-router react-router-dom react-redux
-    Dev: concurrently \"npm run server\" \"npm run client\"
+    Dev: vite tailwindcss @tailwindcss/vite
 
     FOR SERVER: express cors bcryptjs jsonwebtoken dotenv
     Dev: nodemon
