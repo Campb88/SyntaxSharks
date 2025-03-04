@@ -23,10 +23,5 @@ NPM INSTALLS:
     FOR SERVER: express cors bcryptjs jsonwebtoken dotenv
     Dev: nodemon
 
-Need to add .env File to server code section and added the two follow lines:
-
-DATABASE_URL: mongodb+srv://jonathanAdmin:Dragon123@syntaxshark.rm7jv.mongodb.net/?retryWrites=true&w=majority&appName=syntaxShark
-
-PORT: 5713
 
 

@@ -24,9 +24,15 @@ export const SignUp = () => {
   // Handle form submission
   const onSubmit = async (data) => {
     try {
-      console.log("Signup Data:", data);
-      // Example: You could send data to your API here
-      localStorage.setItem("user", JSON.stringify(data));
+      const res = await fetch("http://localhost:5713/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) {
+        const { error } = await res.json();
+        throw new Error(error);
+      }
       toast.success("Sign up successful. Please log in.");
       navigate("/login");
     } catch (error) {
