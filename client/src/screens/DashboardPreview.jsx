@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StatsCard } from "../components/StatsCard/StatsCard";
 import { Icon1 } from "../icons/Icon1/Icon1";
 import { Icon4 } from "../icons/Icon4/Icon4";
@@ -13,27 +13,38 @@ import { TypeFiBellSize24ColorBlack } from "../icons/TypeFiBellSize24ColorBlack/
 import { TypeFiGridSize24ColorBlack } from "../icons/TypeFiGridSize24ColorBlack/TypeFiGridSize24ColorBlack";
 import { TypeFiUsersSize24ColorBlack } from "../icons/TypeFiUsersSize24ColorBlack/TypeFiUsersSize24ColorBlack";
 import "./dashboardpreview.css";
+import { useNavigate } from "react-router";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../store/slices/authSlice";
+
+// Importing image
+import defaultUserImage from "../icons/DefaultUserImage.png";
 
 export const DashboardPreview = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
+  };
+
   return (
     <div className="dashboard-preview">
       <div className="feature-list">
         <div className="div">
           <div className="illustration" />
-
           <div className="text">
             <div className="heading">Lorem ipsum dolor sit</div>
-
             <p className="descriptions">
               Lorem ipsum dolor sit amet consectetur. Nunc ipsum sollicitudin
               semper mauris congue nibh.
             </p>
-
             <div className="button-primary-with">
               <div className="frame">
                 <div className="text-wrapper-2">See more</div>
               </div>
-
               <img
                 className="icon"
                 alt="Tdesign arrow left"
@@ -45,20 +56,16 @@ export const DashboardPreview = () => {
 
         <div className="div">
           <div className="illustration-2" />
-
           <div className="text">
             <div className="heading">Lorem ipsum dolor sit</div>
-
             <p className="descriptions">
               Lorem ipsum dolor sit amet consectetur. Nunc ipsum sollicitudin
               semper mauris congue nibh.
             </p>
-
             <div className="button-primary-with">
               <div className="frame">
                 <div className="text-wrapper-2">See more</div>
               </div>
-
               <img
                 className="icon"
                 alt="Tdesign arrow left"
@@ -70,20 +77,16 @@ export const DashboardPreview = () => {
 
         <div className="div">
           <div className="illustration-3" />
-
           <div className="text">
             <div className="heading">Lorem ipsum dolor sit</div>
-
             <p className="descriptions">
               Lorem ipsum dolor sit amet consectetur. Nunc ipsum sollicitudin
               semper mauris congue nibh.
             </p>
-
             <div className="button-primary-with">
               <div className="frame">
                 <div className="text-wrapper-2">See more</div>
               </div>
-
               <img
                 className="icon"
                 alt="Tdesign arrow left"
@@ -98,7 +101,6 @@ export const DashboardPreview = () => {
         <div className="div-2">
           <div className="div-3">
             <div className="text-wrapper-3">Menu</div>
-
             <div className="div-2">
               <div className="dashboard">
                 <TypeFiGridSize24ColorBlack className="icon" color="#191D23" />
@@ -108,7 +110,6 @@ export const DashboardPreview = () => {
               <div className="div-4">
                 <Icon1 className="icon" color="#191D23" />
                 <div className="text-wrapper-4">Your Trips</div>
-
                 <div className="div-wrapper">
                   <div className="text-wrapper-5">32</div>
                 </div>
@@ -121,7 +122,6 @@ export const DashboardPreview = () => {
                     color="#191D23"
                   />
                   <div className="text-wrapper-4">Plan New Trips</div>
-
                   <Icons
                     className="property-1-outline-property-2-chevron-up"
                     color="#64748B"
@@ -134,7 +134,6 @@ export const DashboardPreview = () => {
           <div className="div-4">
             <TypeFiBellSize24ColorBlack className="icon" color="#191D23" />
             <div className="text-wrapper-4">Notifications</div>
-
             <div className="frame-2">
               <div className="text-wrapper-5">10</div>
             </div>
@@ -155,27 +154,29 @@ export const DashboardPreview = () => {
 
           <div className="div-3">
             <div className="text-wrapper-3">Profile</div>
-
             <div className="frame-3">
               <img
                 className="avatar"
                 alt="Avatar"
-                src="https://c.animaapp.com/mdpJda0E/img/avatar@2x.png"
+                src={defaultUserImage}
               />
-
               <div className="content">
-                <div className="text-wrapper-6">Jenny Wilson</div>
-
-                <div className="text-wrapper-7">jen.wilson@example.com</div>
+                <div className="text-wrapper-6">
+                  {user.username ? user.username : "Guest"}
+                </div>
+                <div className="text-wrapper-7">
+                  {user.email ? user.email : "guest@example.com"}
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="log-out">
+          <div
+            className="log-out inline-flex items-center cursor-pointer w-auto"
+            onClick={handleLogout}
+          >
             <LeftIcon className="left-icon" />
-            <div className="layout">
-              <div className="label">Log out</div>
-            </div>
+            <span className="label ml-2">Log out</span>
           </div>
         </div>
       </div>
@@ -186,7 +187,6 @@ export const DashboardPreview = () => {
             <div className="icon-outline-search-wrapper">
               <IconOutlineSearch1 className="icon-outline-search" />
             </div>
-
             <div className="enter-email-to-get">Type to search</div>
           </div>
         </div>
@@ -199,7 +199,6 @@ export const DashboardPreview = () => {
             <div className="group">
               <div className="overlap-group">
                 <div className="ellipse" />
-
                 <div className="text-wrapper-8">2</div>
               </div>
             </div>
@@ -218,8 +217,9 @@ export const DashboardPreview = () => {
       <div className="frame-5">
         <div className="title">
           <p className="p">here’s what’s happening with your store today</p>
-
-          <div className="text-wrapper-9">Hey Mariana -</div>
+          <div className="text-wrapper-9">
+            Hey {user.username ? user.username : "Guest"}
+          </div>
         </div>
 
         <div className="stats">
