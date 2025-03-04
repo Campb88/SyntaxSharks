@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "npm install concurrently && concurrently \"npm run clientInstall\" \"npm run serverInstall\"",
+    "clientInstall": "cd client && npm install react react-hot-toast react-hook-form zod @hookform/resolvers @reduxjs/toolkit react-router react-router-dom react-redux && npm install -D vite tailwindcss @tailwindcss/vite",
+    "serverInstall": "cd server && npm install express cors bcryptjs jsonwebtoken dotenv && npm install --D nodemon",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd server && npx nodemon server.js",
     "client": "cd client && npm run dev"
@@ -20,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/Campb88/SyntaxSharks/issues"
   },
-  "homepage": "https://github.com/Campb88/SyntaxSharks#readme"
+  "homepage": "https://github.com/Campb88/SyntaxSharks#readme",
+  "dependencies": {
+    "concurrently": "^9.1.2"
+  }
 }

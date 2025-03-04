@@ -10,7 +10,21 @@ API's
 
 MUST NEED TO WORK:
 
-NPM INSTALL ALL NECESSARY COMPONENTS ( I would add the command but I spend to much time on this already)
+Should be able to run "npm run install" in root folder.
+
+NPM INSTALLS:
+FOR ROOT:
+Concurrently
+
+FOR CLIENT:
+react react-hot-toast react-hook-form zod @hookform/resolvers @reduxjs/toolkit react-router react-router-dom react-redux
+    Dev:
+vite tailwindcss @tailwindcss/vite
+
+FOR SERVER:
+express cors bcryptjs jsonwebtoken dotenv
+    Dev:
+nodemon
 
 Need to add .env File to server code section and added the two follow lines:
 
