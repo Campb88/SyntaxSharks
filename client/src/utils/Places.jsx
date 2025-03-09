@@ -1,4 +1,4 @@
-const apiKey = "AIzaSyDtwIdZdy_a76MFTRj8myp7xkNXShZunek"
+const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 const baseURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?";
 
 
