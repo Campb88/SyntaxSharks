@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,7 +11,6 @@ import { useDispatch } from "react-redux";
 import { login } from "../store/slices/authSlice";
 import "./signup.css";
 
-// Schema for login form using identifier and password
 const loginSchema = z.object({
   identifier: z.string().min(1, { message: "Email or Username is required" }),
   password: z.string().min(6, { message: "Password must be at least 6 characters" }),
@@ -40,10 +38,13 @@ export const Login = () => {
         throw new Error(errorData.error || "Login failed");
       }
       const result = await response.json();
-      dispatch(login(result.user));
+      // Save token and user to localStorage
+      localStorage.setItem("authToken", result.token);
+      localStorage.setItem("user", JSON.stringify(result.user));
+      
+      // Dispatch both user and token to Redux
+      dispatch(login({ user: result.user, token: result.token }));
       toast.success(result.message);
-
-      // Navigate to dashboard (or account) after login
       navigate("/dashboard");
     } catch (error) {
       toast.error(error.message || "An error occurred during login");

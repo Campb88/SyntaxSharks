@@ -5,36 +5,51 @@ import { SignUp } from "./screens/SignUp.jsx";
 import { BrowserRouter, Routes, Route } from "react-router";
 import DashboardPreview from "./screens/DashboardPreview.jsx";
 import Login from "./screens/Login.jsx";
-import { Provider } from "react-redux";
-import {store} from "./store/store.js";
 import ProtectedRoute from "./utils/ProtectedRoute.jsx";
 import Account from "./screens/TestAcount.jsx";
+import { Provider, useDispatch } from "react-redux";
+import { store } from "./store/store.js";
+import React, { useEffect } from "react";
+import { login } from "./store/slices/authSlice";
+import { Settings } from "./screens/Settings.jsx";
+
+function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    const user = localStorage.getItem("user");
+    if (token && user) {
+      dispatch(login({ user: JSON.parse(user), token }));
+    }
+  }, [dispatch]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<Desktop />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<DashboardPreview />} />
+      <Route path="/account"
+        element={
+          // <ProtectedRoute>
+            <Account />
+          // </ProtectedRoute>
+        }
+      />
+      <Route path ="/settings" element={<Settings/>}/>
 
 
+    </Routes>
+  );
+}
 
 createRoot(document.getElementById("app")).render(
   <BrowserRouter>
     <StrictMode>
-    <Provider store={store}>
-      <Routes>
-        <Route path="/" element={<Desktop />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path= "/dashboard" element = {<DashboardPreview/>}/>
-        {/* Test */}
-        <Route
-          path="/account"
-          element={
-            <ProtectedRoute>
-              <Account />
-            </ProtectedRoute>
-          }
-        />
-        
-
-      </Routes>
+      <Provider store={store}>
+        <App />
       </Provider>
     </StrictMode>
   </BrowserRouter>
-  
 );

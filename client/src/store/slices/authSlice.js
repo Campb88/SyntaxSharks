@@ -1,44 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialUserState = {
-    // define the initial state of the slice in a separate variable called "initialUserState", which is an object with empty values forÂ firstName, lastName, email, designation, phoneNumber, and avatar, all initially set to empty strings.
-    userName: '',
-    email: '',
-    password: '',
+  username: '', // changed from userName to username for consistency
+  email: '',
+  password: '',
+};
 
-}
-
-// initial auth state
 const initialState = {
-    user: initialUserState,
-    loaded: false
-}
+  user: initialUserState,
+  token: '', // store token here
+  loaded: false,
+};
 
 export const authSlice = createSlice({
-    name: 'auth',
-    initialState,
-    reducers: {
-        // login action
-        // The login action will update the user state with the payload and set loaded to true, indicating that user data has been loaded or the user has successfully logged in.
-        
-        login: (state,action) =>{
-            state.user = action.payload
-            state.loaded = true
-        },
-        // logout action
-        // The logout action resets the user state to initialUserState and sets loaded to false, reflecting that the user has logged out and no user data should be considered loaded.
-        logout: (state) => {
-            state.user = initialUserState
-            state.loaded = false
-        },
-        // loader action
-        loader: (state, action) => {
-            state.loaded = action.payload;
-        }
+  name: 'auth',
+  initialState,
+  reducers: {
+    // login action now expects payload to have both user and token
+    login: (state, action) => {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+      state.loaded = true;
     },
-})
+    // logout resets both user and token
+    logout: (state) => {
+      state.user = initialUserState;
+      state.token = '';
+      state.loaded = false;
+    },
+    loader: (state, action) => {
+      state.loaded = action.payload;
+    }
+  },
+});
 
-// Action creators are generated for each case reducer function
-export const { login, logout, loader } = authSlice.actions
-
-export default authSlice.reducer
+export const { login, logout, loader } = authSlice.actions;
+export default authSlice.reducer;

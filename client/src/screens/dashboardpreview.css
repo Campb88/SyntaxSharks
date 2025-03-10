@@ -226,6 +226,7 @@
   padding: 8px 12px;
   position: relative;
   width: 100%;
+  cursor:pointer;
 }
 
 .dashboard-preview .div-wrapper {
@@ -621,4 +622,268 @@
   height: 10px !important;
   position: relative !important;
   width: 10px !important;
+}
+
+/* Trip Creation Section */
+.dashboard-preview .trip-creation-section {
+  position: absolute;
+  top: 900px; /* Adjust as needed below the stats card */
+  left: 325px;
+  width: 1211px;
+  padding: 16px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #ffffff;
+}
+.dashboard-preview .trip-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--neutral-800);
+  font-family: "Manrope", Helvetica;
+}
+.dashboard-preview .trip-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.dashboard-preview .trip-input {
+  border: 1px solid #d1d5db;
+  padding: 8px;
+  font-family: "Manrope", Helvetica;
+  font-size: 16px;
+}
+.dashboard-preview .trip-textarea {
+  width: 100%;
+  height: 80px;
+}
+.dashboard-preview .trip-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Manrope", Helvetica;
+  font-size: 16px;
+}
+
+/* Trip Creation Section */
+.trip-creation-section {
+  position: absolute;
+  top: 450px; /* Adjust this to position below your stats card */
+  left: 325px;
+  width: 1211px;
+  padding: 16px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #ffffff;
+}
+.trip-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--neutral-800);
+  font-family: "Manrope", Helvetica;
+}
+.trip-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.trip-input,
+.trip-textarea {
+  border: 1px solid #d1d5db;
+  padding: 8px;
+  font-family: "Manrope", Helvetica;
+  font-size: 16px;
+  margin-right: 8px;
+}
+.trip-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Display current trip details */
+.current-trip-details {
+  margin-top: 16px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-family: "Manrope", Helvetica;
+}
+
+/* Places CRUD Section */
+.places-crud-section {
+  position: absolute;
+  top: 1200px; /* Adjust to appear below the trip creation section */
+  left: 325px;
+  width: 1211px;
+  padding: 16px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #ffffff;
+}
+.places-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--neutral-800);
+  font-family: "Manrope", Helvetica;
+}
+.places-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.places-input {
+  border: 1px solid #d1d5db;
+  padding: 8px;
+  font-family: "Manrope", Helvetica;
+  font-size: 16px;
+  flex: 1;
+}
+.places-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Manrope", Helvetica;
+  font-size: 16px;
+}
+.places-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.places-item {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Manrope", Helvetica;
+}
+.places-info .places-name {
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+.places-actions button {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Manrope", Helvetica;
+  font-size: 14px;
+}
+.update-btn {
+  background-color: #f59e0b;
+  color: #ffffff;
+}
+.delete-btn {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+/* Autocomplete list */
+.autocomplete-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: #ffffff;
+  max-height: 150px;
+  overflow-y: auto;
+}
+.autocomplete-item {
+  padding: 8px;
+  cursor: pointer;
+}
+.autocomplete-item:hover {
+  background-color: #f3f4f6;
+}
+
+/* Place Cards */
+.place-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+}
+.place-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 16px;
+  width: 300px;
+  background-color: #ffffff;
+}
+.place-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.place-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+.place-card-actions button {
+  margin-left: 4px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.itinerary-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 8px;
+}
+.itinerary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px 0;
+}
+.itinerary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.itinerary-actions button {
+  margin-left: 4px;
+  padding: 2px 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.add-itinerary {
+  display: flex;
+  gap: 8px;
+}
+.itinerary-input {
+  flex: 1;
+  padding: 4px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+.itinerary-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
