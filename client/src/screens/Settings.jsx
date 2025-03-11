@@ -161,7 +161,13 @@ export const Settings = () => {
           alt="Ellipse"
           src="https://c.animaapp.com/qGbAAhG1/img/ellipse-6@2x.png"
         />
-        <LogoOriginal1 className="logo-original" />
+        {/* <LogoOriginal1 className="logo-original" /> */}
+        <div className="logo-original">
+          <p className="rareblocks">
+                <span className="blueline">/</span>
+                <span className="span">Shark Travels</span>
+          </p>
+        </div>  
       </div>
 
       <div className="frame-5">
