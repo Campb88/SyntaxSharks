@@ -46,7 +46,10 @@ export const Settings = () => {
               </Link>
               <div className="div-3">
                 <Icon1 className="icon" color="#191D23" />
-                <div className="text-wrapper-2">Your Trips</div>
+                <Link to = "/yourtrips">
+                  <div className="text-wrapper-2">Your Trips</div>
+                </Link>
+                
                 <div className="frame">
                   <div className="text-wrapper-3">32</div>
                 </div>
@@ -70,9 +73,11 @@ export const Settings = () => {
                     <div className="div-wrapper">
                       <div className="text-wrapper-4">Hotels</div>
                     </div>
-                    <div className="div-wrapper">
-                      <div className="text-wrapper-4">Itinerary</div>
-                    </div>
+                    <Link to= "/itinerary">
+                      <div className="div-wrapper">
+                        <div className="text-wrapper-4">Itinerary</div>
+                      </div>
+                    </Link>
                   </div>
                   <img
                     className="line"
@@ -83,11 +88,14 @@ export const Settings = () => {
               </div>
             </div>
           </div>
-          <div className="div-4">
-            {/* <TypeFiSettingsSize24ColorBlack className="icon" color="#191D23" /> */}
-            <Icon4 className="icon" color="#191D23" />
-            <div className="text-wrapper-2">Settings</div>
-          </div>
+          <Link to = "/settings">
+            <div className="div-4">
+              {/* <TypeFiSettingsSize24ColorBlack className="icon" color="#191D23" /> */}
+              <Icon4 className="icon" color="#191D23" />
+              <div className="text-wrapper-2">Settings</div>
+            </div>
+          </Link>
+          
         </div>
 
         <div className="div-2">

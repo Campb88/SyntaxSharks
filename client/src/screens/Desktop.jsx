@@ -17,13 +17,14 @@ export const Desktop = () => {
           <div className="div">
             <div className="logo">
               <p className="rareblocks">
-                <span className="text-wrapper">/</span>
-
-                <span className="span">Shark Travels</span>
+                <Link to = "/">
+                  <span className="text-wrapper">/</span>
+                  <span className="span">Shark Travels</span>
+                </Link>
               </p>
             </div>
-
-            <div className="menu">
+            {/* Top menu */}
+            {/* <div className="menu">
               <div className="frame-2">
                 <div className="text-wrapper-2">Features</div>
 
@@ -31,7 +32,7 @@ export const Desktop = () => {
 
                 <div className="text-wrapper-2">Automation</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="frame-3">
@@ -199,7 +200,7 @@ export const Desktop = () => {
                   <div className="illustration" />
 
                   <div className="text-2">
-                    <div className="heading-2">Lorem ipsum dolor sit</div>
+                    <div className="heading-2">Travel Guide #1</div>
 
                     <p className="descriptions">
                       Lorem ipsum dolor sit amet consectetur. Nunc ipsum
@@ -213,7 +214,7 @@ export const Desktop = () => {
 
                   <div className="text-2">
                     <p className="heading-2">
-                      Lorem ipsum dolor sit amet consectetur.
+                      Travel Guide # 2
                     </p>
 
                     <p className="descriptions">
@@ -229,7 +230,7 @@ export const Desktop = () => {
                   <div className="illustration-3" />
 
                   <div className="text-2">
-                    <div className="heading-2">Lorem ipsum dolor sit</div>
+                    <div className="heading-2">Travel Guide #3</div>
 
                     <p className="descriptions">
                       Lorem ipsum dolor sit amet consectetur. Nunc ipsum
@@ -242,7 +243,7 @@ export const Desktop = () => {
                   <div className="illustration-4" />
 
                   <div className="text-2">
-                    <div className="heading-2">Lorem ipsum dolor sit</div>
+                    <div className="heading-2">Travel Guide #4</div>
 
                     <p className="descriptions">
                       Lorem ipsum dolor sit amet consectetur. Nunc ipsum
@@ -255,7 +256,7 @@ export const Desktop = () => {
                   <div className="illustration-5" />
 
                   <div className="text-2">
-                    <div className="heading-2">Lorem ipsum dolor sit</div>
+                    <div className="heading-2">Travel Guide #5</div>
 
                     <p className="descriptions">
                       Lorem ipsum dolor sit amet consectetur. Nunc ipsum
@@ -443,10 +444,13 @@ export const Desktop = () => {
             <div className="frame-14">
               <div className="logo">
                 <p className="rareblocks">
-                  <span className="text-wrapper">/</span>
-
-                  <span className="span">Shark Travels</span>
+                  <Link to = "/">
+                    <span className="text-wrapper">/</span>
+                    <span className="span">Shark Travels</span>
+                  </Link>
                 </p>
+
+                
               </div>
 
               <div className="nav-item">

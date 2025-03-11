@@ -1,0 +1,33 @@
+.component {
+    align-items: flex-start;
+    background-color: #e7eaee;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 15px;
+    position: relative;
+  }
+  
+  .component .frame {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 6px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .component .text-wrapper {
+    color: #000000;
+    font-family: "DM Sans", Helvetica;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1.00px;
+    position: relative;
+    width: 166px;
+  }
+  

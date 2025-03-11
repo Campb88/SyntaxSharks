@@ -10,7 +10,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MongoDB
+// -------------------
+// MongoDB Connection
+// -------------------
 mongoose
   .connect(process.env.DATABASE_URL)
   .then(() => console.log("Connected to MongoDB"))
@@ -19,8 +21,6 @@ mongoose
 // -------------------
 // User Model & Endpoints
 // -------------------
-
-// Define a User model
 const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email:    { type: String, required: true, unique: true },
@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema({
 });
 const User = mongoose.model("User", UserSchema);
 
-// Signup endpoint
+// Signup
 app.post("/api/signup", async (req, res) => {
   console.log("Received signup POST request");
   const { username, email, password } = req.body;
@@ -41,7 +41,7 @@ app.post("/api/signup", async (req, res) => {
   if (userCheck1 || userCheck2) {
     return res.status(400).json({ error: "User already exists" });
   }
-  // Hash password and save new user
+  // Hash password
   bcrypt.hash(password, 10, async (err, hashedPassword) => {
     if (err) {
       return res.status(500).json({ error: "Error hashing password" });
@@ -57,7 +57,7 @@ app.post("/api/signup", async (req, res) => {
   });
 });
 
-// Login endpoint using "identifier" (email or username)
+// Login with "identifier" (email or username)
 app.post("/api/login", async (req, res) => {
   console.log("Received login POST request");
   const { identifier, password } = req.body;
@@ -90,7 +90,6 @@ app.post("/api/login", async (req, res) => {
 // -------------------
 // Authentication Middleware
 // -------------------
-
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
@@ -103,10 +102,8 @@ function authenticateToken(req, res, next) {
 }
 
 // -------------------
-// Trip & Places Models and Endpoints
+// Trip & Places Models
 // -------------------
-
-// Define a Trip model with embedded places and itinerary array
 const ItineraryItemSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String }
@@ -130,6 +127,10 @@ const TripSchema = new mongoose.Schema({
   places: [PlaceSchema]
 });
 const Trip = mongoose.model("Trip", TripSchema);
+
+// -------------------
+// Trip CRUD Endpoints
+// -------------------
 
 // Create a new trip
 app.post("/api/trips", authenticateToken, async (req, res) => {
@@ -161,7 +162,7 @@ app.get("/api/trips", authenticateToken, async (req, res) => {
   }
 });
 
-// Get a specific trip (with places)
+// Get a specific trip
 app.get("/api/trips/:tripId", authenticateToken, async (req, res) => {
   const { tripId } = req.params;
   try {
@@ -173,7 +174,43 @@ app.get("/api/trips/:tripId", authenticateToken, async (req, res) => {
   }
 });
 
-// Add a new place to a trip (no address required)
+// Update a trip
+app.put("/api/trips/:tripId", authenticateToken, async (req, res) => {
+  const { tripId } = req.params;
+  const { title, startDate, endDate, description } = req.body;
+  try {
+    const trip = await Trip.findOne({ _id: tripId, userEmail: req.user.email });
+    if (!trip) return res.status(404).json({ error: "Trip not found" });
+    if (title) trip.title = title;
+    if (startDate) trip.startDate = startDate;
+    if (endDate) trip.endDate = endDate;
+    if (description !== undefined) trip.description = description;
+    await trip.save();
+    res.status(200).json({ message: "Trip updated successfully", trip });
+  } catch (error) {
+    res.status(500).json({ error: "Error updating trip" });
+  }
+});
+
+// Delete a trip
+app.delete("/api/trips/:tripId", authenticateToken, async (req, res) => {
+  const { tripId } = req.params;
+  try {
+    const trip = await Trip.findOneAndDelete({ _id: tripId, userEmail: req.user.email });
+    if (!trip) return res.status(404).json({ error: "Trip not found" });
+    // Return the updated list of trips
+    const trips = await Trip.find({ userEmail: req.user.email });
+    res.status(200).json({ message: "Trip deleted successfully", trips });
+  } catch (error) {
+    res.status(500).json({ error: "Error deleting trip" });
+  }
+});
+
+// -------------------
+// Place CRUD Endpoints
+// -------------------
+
+// Add a new place to a trip
 app.post("/api/trips/:tripId/places", authenticateToken, async (req, res) => {
   const { tripId } = req.params;
   const { googlePlaceId, name, priceLevel, rating, icon } = req.body;
@@ -192,7 +229,7 @@ app.post("/api/trips/:tripId/places", authenticateToken, async (req, res) => {
   }
 });
 
-// Update a place (for example, update the place's name)
+// Update a place
 app.put("/api/trips/:tripId/places/:placeId", authenticateToken, async (req, res) => {
   const { tripId, placeId } = req.params;
   try {
@@ -200,6 +237,7 @@ app.put("/api/trips/:tripId/places/:placeId", authenticateToken, async (req, res
     if (!trip) return res.status(404).json({ error: "Trip not found" });
     const place = trip.places.id(placeId);
     if (!place) return res.status(404).json({ error: "Place not found" });
+    // Merge request body into the place object
     Object.assign(place, req.body);
     await trip.save();
     res.status(200).json({ message: "Place updated successfully", trip });
@@ -208,13 +246,13 @@ app.put("/api/trips/:tripId/places/:placeId", authenticateToken, async (req, res
   }
 });
 
-// Delete a place from a trip
+// Delete a place
 app.delete("/api/trips/:tripId/places/:placeId", authenticateToken, async (req, res) => {
   const { tripId, placeId } = req.params;
   try {
     const trip = await Trip.findOne({ _id: tripId, userEmail: req.user.email });
     if (!trip) return res.status(404).json({ error: "Trip not found" });
-    // Use pull to remove the place
+    // Use pull to remove the place by its _id
     trip.places.pull(placeId);
     await trip.save();
     res.status(200).json({ message: "Place deleted successfully", trip });
@@ -224,7 +262,9 @@ app.delete("/api/trips/:tripId/places/:placeId", authenticateToken, async (req, 
   }
 });
 
-// ---------- Itinerary Item Endpoints ----------
+// -------------------
+// Itinerary Endpoints
+// -------------------
 
 // Add an itinerary item to a place
 app.post("/api/trips/:tripId/places/:placeId/itinerary", authenticateToken, async (req, res) => {
@@ -244,7 +284,7 @@ app.post("/api/trips/:tripId/places/:placeId/itinerary", authenticateToken, asyn
   }
 });
 
-// Update an itinerary item for a place
+// Update an itinerary item
 app.put("/api/trips/:tripId/places/:placeId/itinerary/:itemId", authenticateToken, async (req, res) => {
   const { tripId, placeId, itemId } = req.params;
   const { title, description } = req.body;
@@ -264,7 +304,7 @@ app.put("/api/trips/:tripId/places/:placeId/itinerary/:itemId", authenticateToke
   }
 });
 
-// Delete an itinerary item from a place
+// Delete an itinerary item
 app.delete("/api/trips/:tripId/places/:placeId/itinerary/:itemId", authenticateToken, async (req, res) => {
   const { tripId, placeId, itemId } = req.params;
   try {
@@ -272,7 +312,7 @@ app.delete("/api/trips/:tripId/places/:placeId/itinerary/:itemId", authenticateT
     if (!trip) return res.status(404).json({ error: "Trip not found" });
     const place = trip.places.id(placeId);
     if (!place) return res.status(404).json({ error: "Place not found" });
-    // Use pull to remove the itinerary item
+    // Use pull to remove the itinerary item by its _id
     place.itinerary.pull(itemId);
     await trip.save();
     res.status(200).json({ message: "Itinerary item deleted successfully", trip });
@@ -281,6 +321,10 @@ app.delete("/api/trips/:tripId/places/:placeId/itinerary/:itemId", authenticateT
     res.status(500).json({ error: "Error deleting itinerary item" });
   }
 });
+
+// -------------------
+// Start the Server
+// -------------------
 const PORT = process.env.PORT || 5713;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

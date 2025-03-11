@@ -190,7 +190,8 @@
 .dashboard-preview .dashboard {
   align-items: center;
   align-self: stretch;
-  background-color: var(--neutral-100);
+  /* display: flex; */
+  /* background-color: var(--neutral-100); */
   border-radius: 4px;
   display: flex;
   flex: 0 0 auto;
@@ -627,7 +628,7 @@
 /* Trip Creation Section */
 .dashboard-preview .trip-creation-section {
   position: absolute;
-  top: 900px; /* Adjust as needed below the stats card */
+  top: 100px; /* Adjust as needed below the stats card */
   left: 325px;
   width: 1211px;
   padding: 16px;
@@ -719,10 +720,9 @@
 
 /* Places CRUD Section */
 .places-crud-section {
-  position: absolute;
-  top: 1200px; /* Adjust to appear below the trip creation section */
-  left: 325px;
-  width: 1211px;
+  position:relative;
+  left: 1px;
+  width: auto;
   padding: 16px;
   border-top: 1px solid #e5e7eb;
   background-color: #ffffff;
@@ -994,3 +994,159 @@
     position: relative;
     width: 100%;
   }
+/* Trip Creation Section */
+
+
+.trip-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #191D23;
+  font-family: "Manrope", Helvetica, sans-serif;
+}
+
+.trip-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trip-input,
+.trip-textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  font-family: "Manrope", Helvetica, sans-serif;
+}
+
+.trip-textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.trip-btn {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Manrope", Helvetica, sans-serif;
+}
+
+.current-trip-details {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  font-family: "Manrope", Helvetica, sans-serif;
+}
+
+.current-trip-details p {
+  margin: 4px 0;
+}
+
+/* Container holding all trips */
+.trips-list {
+  position: absolute;
+  top: 450px; /* adjust as needed below trip creation */
+  left: 325px;
+  width: 1211px;
+  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: "Manrope", Helvetica, sans-serif;
+}
+
+.trips-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #191D23;
+  margin-bottom: 16px;
+  font-family: "Manrope", Helvetica, sans-serif;
+}
+
+/* Each trip card */
+.trip-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background-color: #fafafb;
+  margin-bottom: 16px;
+  padding: 16px;
+  font-family: "Manrope", Helvetica, sans-serif;
+}
+
+/* Trip Title (within the card) */
+.trip-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #191D23;
+  margin-bottom: 8px;
+}
+
+.trip-card p {
+  font-size: 14px;
+  color: #4B5563; /* a neutral gray */
+  margin: 4px 0;
+}
+
+/* Buttons for each trip */
+.trip-actions button {
+  background-color: #3b82f6; /* a nice blue */
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-right: 8px; /* space between buttons */
+  font-size: 14px;
+  cursor: pointer;
+  font-family: "Manrope", Helvetica, sans-serif;
+}
+.trip-actions button:hover {
+  opacity: 0.9;
+}
+
+/* Place cards */
+.place-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 16px;
+  background-color: #f9fafb;
+}
+
+.bgcolorg {
+  background-color: var(--neutral-100);background-color: var(--neutral-100);
+}
+
+.text-wrapper-2a {
+  align-self: stretch;
+  /* color: var(--neutral-500); */
+  font-family: "Manrope", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+}
+
+.dashboarda {
+  align-items: center;
+  align-self: stretch;
+  border-radius: 4px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  padding: 12px;
+  position: relative;
+  width: 100%;
+}

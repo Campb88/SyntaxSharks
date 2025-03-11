@@ -290,7 +290,10 @@ export const DashboardPreview = () => {
 
               <div className="div-4">
                 <Icon1 className="icon" color="#191D23" />
-                <div className="text-wrapper-4">Your Trips</div>
+                <Link to = "/yourtrips">
+                  <div className="text-wrapper-4">Your Trips</div>
+                </Link>
+                
                 <div className="div-wrapper">
                   <div className="text-wrapper-5">32</div>
                 </div>
@@ -329,9 +332,11 @@ export const DashboardPreview = () => {
                     <div className="div-wrappera">
                       <div className="text-wrapper-4">Hotels</div>
                     </div>
-                    <div className="div-wrappera">
-                      <div className="text-wrapper-4">Itinerary</div>
-                    </div>
+                    <Link to= "/itinerary">
+                      <div className="div-wrappera">
+                        <div className="text-wrapper-4">Itinerary</div>
+                      </div>
+                    </Link>
                   </div>
                   <img
                     className="line"
@@ -428,8 +433,10 @@ export const DashboardPreview = () => {
         {/* <LogoOriginal1 className="logo-original" /> */}
         <div className="logo-original">
           <p className="rareblocks">
-                <span className="text-wrapper">/</span>
-                <span className="span">Shark Travels</span>
+                <Link to = "/">
+                  <span className="text-wrapper">/</span>
+                  <span className="span">Shark Travels</span>
+                </Link>
           </p>
         </div>  
         
@@ -476,102 +483,6 @@ export const DashboardPreview = () => {
           />
         </div>
       </div>
-      {/* ---------- Trip Creation Section (always visible) ---------- */}
-      <div className="trip-creation-section">
-        <h2 className="trip-title">Create a New Trip</h2>
-        <form onSubmit={handleCreateTrip} className="trip-form">
-          <input
-            type="text"
-            placeholder="Trip Title"
-            value={tripForm.title}
-            onChange={(e) => setTripForm({ ...tripForm, title: e.target.value })}
-            className="trip-input"
-          />
-          <input
-            type="date"
-            placeholder="Start Date"
-            value={tripForm.startDate}
-            onChange={(e) => setTripForm({ ...tripForm, startDate: e.target.value })}
-            className="trip-input"
-          />
-          <input
-            type="date"
-            placeholder="End Date"
-            value={tripForm.endDate}
-            onChange={(e) => setTripForm({ ...tripForm, endDate: e.target.value })}
-            className="trip-input"
-          />
-          <textarea
-            placeholder="Trip Description (optional)"
-            value={tripForm.description}
-            onChange={(e) => setTripForm({ ...tripForm, description: e.target.value })}
-            className="trip-textarea"
-          />
-          <button type="submit" className="trip-btn">Create Trip</button>
-        </form>
-      </div>
-
-      {/* ---------- Places CRUD Section (visible when a trip exists) ---------- */}
-      {currentTrip && (
-        <div className="places-crud-section">
-          <h2 className="places-title">Places for Trip: {currentTrip.title}</h2>
-          <form onSubmit={handleAddPlace} className="places-form">
-            {/* Use AutocompleteInput for place search */}
-            <AutocompleteInput 
-              onPlaceSelected={handlePlaceSelect}
-              placeholder="Search for a place"
-            />
-            <button type="submit" className="places-btn">Add Place</button>
-          </form>
-          <div className="place-cards">
-            {places.map((place) => (
-              <div key={place._id} className="place-card">
-                <div className="place-card-header">
-                  <h3 className="place-name">{place.name}</h3>
-                  <div className="place-card-actions">
-                    <button onClick={() => handleUpdatePlace(place._id)} className="update-btn">
-                      Update Place
-                    </button>
-                    <button onClick={() => handleDeletePlace(place._id)} className="delete-btn">
-                      Delete Place
-                    </button>
-                  </div>
-                </div>
-                <div className="itinerary-section">
-                  <h4>Itinerary Items:</h4>
-                  <ul className="itinerary-list">
-                    {place.itinerary && place.itinerary.map((item) => (
-                      <li key={item._id} className="itinerary-item">
-                        <span className="itinerary-title">{item.title}</span>
-                        <div className="itinerary-actions">
-                          <button onClick={() => handleUpdateItineraryItem(place._id, item._id)} className="update-btn">
-                            Update
-                          </button>
-                          <button onClick={() => handleDeleteItineraryItem(place._id, item._id)} className="delete-btn">
-                            Delete
-                          </button>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="add-itinerary">
-                    <input 
-                      type="text" 
-                      placeholder="Add itinerary item" 
-                      value={newItineraryItems[place._id] || ""}
-                      onChange={(e) => setNewItineraryItems({ ...newItineraryItems, [place._id]: e.target.value })}
-                      className="itinerary-input"
-                    />
-                    <button type="button" onClick={() => handleAddItineraryItem(place._id)} className="itinerary-btn">
-                      Add
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

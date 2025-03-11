@@ -12,6 +12,8 @@ import { store } from "./store/store.js";
 import React, { useEffect } from "react";
 import { login } from "./store/slices/authSlice";
 import { Settings } from "./screens/Settings.jsx";
+import { Itinerary } from "./screens/Itinerary.jsx";
+import YourTrips from "./screens/YourTrips.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +40,8 @@ function App() {
         }
       />
       <Route path ="/settings" element={<Settings/>}/>
+      <Route path ="/itinerary" element={<Itinerary/>}/>
+      <Route path="/yourtrips" element={<YourTrips />} />
 
 
     </Routes>
