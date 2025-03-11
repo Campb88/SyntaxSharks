@@ -220,10 +220,9 @@ export const DashboardPreview = () => {
         <div className="div">
           <div className="illustration" />
           <div className="text">
-            <div className="heading">Lorem ipsum dolor sit</div>
+            <div className="heading">Travel Guide #1</div>
             <p className="descriptions">
-              Lorem ipsum dolor sit amet consectetur. Nunc ipsum sollicitudin
-              semper mauris congue nibh.
+            From biking and hiking to wildlife watching, experience the best of the Swiss Alps with this guide to the top things to do.
             </p>
             <div className="button-primary-with">
               <div className="frame">
@@ -241,10 +240,9 @@ export const DashboardPreview = () => {
         <div className="div">
           <div className="illustration-2" />
           <div className="text">
-            <div className="heading">Lorem ipsum dolor sit</div>
+            <div className="heading">Travel Guide #2</div>
             <p className="descriptions">
-              Lorem ipsum dolor sit amet consectetur. Nunc ipsum sollicitudin
-              semper mauris congue nibh.
+            Dubai is a city of superlatives, home to the world's tallest tower, one of the world's largest shopping malls and one of the world's largest human-made marinas.
             </p>
             <div className="button-primary-with">
               <div className="frame">
@@ -262,10 +260,9 @@ export const DashboardPreview = () => {
         <div className="div">
           <div className="illustration-3" />
           <div className="text">
-            <div className="heading">Lorem ipsum dolor sit</div>
+            <div className="heading">Travel guide #3</div>
             <p className="descriptions">
-              Lorem ipsum dolor sit amet consectetur. Nunc ipsum sollicitudin
-              semper mauris congue nibh.
+            Visit the historic landmarks of Hawai'i and learn about the rich and amazing culture of the islands.
             </p>
             <div className="button-primary-with">
               <div className="frame">
@@ -299,7 +296,7 @@ export const DashboardPreview = () => {
                 </div>
               </div>
 
-              <div className="teams">
+              {/* <div className="teams">
                 <div className="div-4">
                   <TypeFiUsersSize24ColorBlack
                     className="icon"
@@ -311,17 +308,48 @@ export const DashboardPreview = () => {
                     color="#64748B"
                   />
                 </div>
+              </div> */}
+              <div className="teamsa">
+              <div className="div-4">
+                  <TypeFiUsersSize24ColorBlack
+                    className="icon"
+                    color="#191D23"
+                  />
+                  <div className="text-wrapper-4">Plan New Trips</div>
+                </div>
+                <div className="frame-2a">
+                  <div className="team-sub-menu">
+                    <div className="div-wrappera">
+                      <div className="text-wrapper-4">Budget</div>
+                    </div>
+                    <div className="div-wrappera">
+                      <div className="text-wrapper-4">Flights</div>
+                      {/* <PropertyOutline /> */}
+                    </div>
+                    <div className="div-wrappera">
+                      <div className="text-wrapper-4">Hotels</div>
+                    </div>
+                    <div className="div-wrappera">
+                      <div className="text-wrapper-4">Itinerary</div>
+                    </div>
+                  </div>
+                  <img
+                    className="line"
+                    alt="Line"
+                    src="https://c.animaapp.com/qGbAAhG1/img/line-9.svg"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="div-4">
+          {/* <div className="div-4">
             <TypeFiBellSize24ColorBlack className="icon" color="#191D23" />
             <div className="text-wrapper-4">Notifications</div>
             <div className="frame-2">
               <div className="text-wrapper-5">10</div>
             </div>
-          </div>
+          </div> */}
 
           <Link to="/settings">
             <div className="div-4">
@@ -397,12 +425,19 @@ export const DashboardPreview = () => {
           src="https://c.animaapp.com/mdpJda0E/img/ellipse-6@2x.png"
         />
 
-        <LogoOriginal1 className="logo-original" />
+        {/* <LogoOriginal1 className="logo-original" /> */}
+        <div className="logo-original">
+          <p className="rareblocks">
+                <span className="text-wrapper">/</span>
+                <span className="span">Shark Travels</span>
+          </p>
+        </div>  
+        
       </div>
 
       <div className="frame-5">
         <div className="title">
-          <p className="p">here’s what’s happening with your store today</p>
+          <p className="p">Welcome to your Shark Travels Dashboard!</p>
           <div className="text-wrapper-9">
             Hey {user.username ? user.username : "Guest"}
           </div>

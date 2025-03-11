@@ -271,7 +271,7 @@
 
 .dashboard-preview .frame-2 {
   align-items: flex-start;
-  background-color: var(--successgreen-700);
+  /* background-color: var(--successgreen-700); */
   border-radius: 4px;
   display: inline-flex;
   flex: 0 0 auto;
@@ -887,3 +887,110 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+/* logo */
+.rareblocks {
+    color: transparent;
+    font-family: "Plus Jakarta Sans", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 3.00px;
+    line-height: 30px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+
+  .span {
+    color: black;
+    letter-spacing: 0.48px;
+  }
+  
+  .text-wrapper{
+    color: blue;
+  }
+
+  .team-sub-menu {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    padding: 0px 0px 0px 28px;
+    position: relative;
+    width: 100%;
+  }
+.line {
+    height: 171px;
+    left: 23px;
+    object-fit: cover;
+    position: absolute;
+    top: 1px;
+    width: 1px;
+    padding-bottom: 10px;
+  }
+
+  .frame-2a {
+    align-items: flex-end;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    position: relative;
+    width: 100%;
+  }
+
+  .teamsa {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+
+  .div-3a {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 8px;
+    padding: 8px 12px;
+    position: relative;
+    width: 100%;
+  }
+
+  .text-wrapper-2a {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    color: var(--neutral-800);
+    display: -webkit-box;
+    flex: 1;
+    font-family: "Manrope", Helvetica;
+    font-size: 16px;
+    font-weight: 600;
+    height: 22px;
+    letter-spacing: 0;
+    line-height: normal;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+  }
+
+  .div-wrappera {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 8px;
+    padding: 8px;
+    position: relative;
+    width: 100%;
+  }
