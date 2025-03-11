@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { Desktop } from "./screens/Desktop.jsx";
+import { Desktop } from "./screens/Desktop/Desktop.jsx";
 import { SignUp } from "./screens/SignUp.jsx";
 import { BrowserRouter, Routes, Route } from "react-router";
 import DashboardPreview from "./screens/DashboardPreview.jsx";
@@ -14,6 +14,7 @@ import { login } from "./store/slices/authSlice";
 import { Settings } from "./screens/Settings.jsx";
 import { Itinerary } from "./screens/Itinerary.jsx";
 import YourTrips from "./screens/YourTrips.jsx";
+import './style.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Desktop />} />
+      <Route index element={<Desktop />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<DashboardPreview />} />
