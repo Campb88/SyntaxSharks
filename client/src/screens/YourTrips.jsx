@@ -75,7 +75,7 @@ export const YourTrips = () => {
       return;
     }
     try {
-      const response = await fetch("http://localhost:5713/api/trips", {
+      const response = await fetch("https://syntaxsharks-backend.onrender.com/api/trips", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -105,7 +105,7 @@ export const YourTrips = () => {
     const updatedTitle = prompt("Enter new trip title:");
     if (!updatedTitle) return;
     try {
-      const response = await fetch(`http://localhost:5713/api/trips/${tripId}`, {
+      const response = await fetch(`https://syntaxsharks-backend.onrender.com/api/trips/${tripId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -128,7 +128,7 @@ export const YourTrips = () => {
   const handleDeleteTrip = async (tripId) => {
     if (!window.confirm("Are you sure you want to delete this trip?")) return;
     try {
-      const response = await fetch(`http://localhost:5713/api/trips/${tripId}`, {
+      const response = await fetch(`https://syntaxsharks-backend.onrender.com/api/trips/${tripId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -172,7 +172,7 @@ export const YourTrips = () => {
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5713/api/trips/${tripId}/places`, {
+      const response = await fetch(`https://syntaxsharks-backend.onrender.com/api/trips/${tripId}/places`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -208,7 +208,7 @@ export const YourTrips = () => {
     const updatedName = prompt("Enter new name for the place:");
     if (!updatedName) return;
     try {
-      const response = await fetch(`http://localhost:5713/api/trips/${tripId}/places/${placeId}`, {
+      const response = await fetch(`https://syntaxsharks-backend.onrender.com/api/trips/${tripId}/places/${placeId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -231,7 +231,7 @@ export const YourTrips = () => {
   const handleDeletePlace = async (tripId, placeId) => {
     if (!window.confirm("Are you sure you want to delete this place?")) return;
     try {
-      const response = await fetch(`http://localhost:5713/api/trips/${tripId}/places/${placeId}`, {
+      const response = await fetch(`https://syntaxsharks-backend.onrender.com/api/trips/${tripId}/places/${placeId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -261,7 +261,7 @@ export const YourTrips = () => {
     }
     try {
       const response = await fetch(
-        `http://localhost:5713/api/trips/${tripId}/places/${placeId}/itinerary`,
+        `https://syntaxsharks-backend.onrender.com/api/trips/${tripId}/places/${placeId}/itinerary`,
         {
           method: "POST",
           headers: {
@@ -293,7 +293,7 @@ export const YourTrips = () => {
     if (!newText) return;
     try {
       const response = await fetch(
-        `http://localhost:5713/api/trips/${tripId}/places/${placeId}/itinerary/${itemId}`,
+        `https://syntaxsharks-backend.onrender.com/api/trips/${tripId}/places/${placeId}/itinerary/${itemId}`,
         {
           method: "PUT",
           headers: {
@@ -319,7 +319,7 @@ export const YourTrips = () => {
     if (!window.confirm("Are you sure you want to delete this itinerary item?")) return;
     try {
       const response = await fetch(
-        `http://localhost:5713/api/trips/${tripId}/places/${placeId}/itinerary/${itemId}`,
+        `https://syntaxsharks-backend.onrender.com/api/trips/${tripId}/places/${placeId}/itinerary/${itemId}`,
         {
           method: "DELETE",
           headers: {

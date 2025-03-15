@@ -65,7 +65,7 @@ const Places = {
   },
 
   async createPlace(tripId, place, token) {
-    return fetch(`http://localhost:5713/api/trips/${tripId}/places`, {
+    return fetch(`https://syntaxsharks-backend.onrender.com/api/trips/${tripId}/places`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const Places = {
   },
 
   async getTrip(tripId, token) {
-    return fetch(`http://localhost:5713/api/trips/${tripId}`, {
+    return fetch(`https://syntaxsharks-backend.onrender.com/api/trips/${tripId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -84,7 +84,7 @@ const Places = {
   },
 
   async getTrips(token) {
-    return fetch("http://localhost:5713/api/trips", {
+    return fetch("https://syntaxsharks-backend.onrender.com/api/trips", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -92,7 +92,7 @@ const Places = {
   },
 
   async updatePlace(tripId, placeId, updatedPlace, token) {
-    return fetch(`http://localhost:5713/api/trips/${tripId}/places/${placeId}`, {
+    return fetch(`https://syntaxsharks-backend.onrender.com/api/trips/${tripId}/places/${placeId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -103,7 +103,7 @@ const Places = {
   },
 
   async deletePlace(tripId, placeId, token) {
-    return fetch(`http://localhost:5713/api/trips/${tripId}/places/${placeId}`, {
+    return fetch(`https://syntaxsharks-backend.onrender.com/api/trips/${tripId}/places/${placeId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

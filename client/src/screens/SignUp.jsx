@@ -24,7 +24,7 @@ export const SignUp = () => {
   // Handle form submission
   const onSubmit = async (data) => {
     try {
-      const res = await fetch("http://localhost:5713/api/signup", {
+      const res = await fetch("https://syntaxsharks-backend.onrender.com/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)

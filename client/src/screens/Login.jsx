@@ -26,7 +26,7 @@ export const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("http://localhost:5713/api/login", {
+      const response = await fetch("https://syntaxsharks-backend.onrender.com/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
