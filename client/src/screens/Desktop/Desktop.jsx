@@ -1,9 +1,16 @@
 import React from "react";
 import "./Desktop.css";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
 
 export const Desktop = () => {
 
+  const { user } = useSelector(state => state.auth);
+
+    // Dispatches a logout and removes the userdata from localStorage to log in the user out.
+  const logoutHandler = () => {
+    dispatch(logout());
+  }
   return (
     <div className="desktop">
       <div className="overlap">
@@ -34,18 +41,36 @@ export const Desktop = () => {
           </div>
 
           <div className="frame-3">
+            {(!user || !user.email) ? (
+              <>
+                <button className="button-primary-with">
+                  <span className="button-name-wrapper">
+                    <Link to ="/login" className="button-name">Login</Link>
+                  </span>
+                </button>
 
-            <button className="button-primary-with">
-              <span className="button-name-wrapper">
-                <Link to ="/login" className="button-name">Login</Link>
-              </span>
-            </button>
+                <button className="button-primary-with">
+                  <span className="button-name-wrapper">
+                    <Link to ="/signup" className="button-name">Sign up</Link>
+                  </span>
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="button-primary-with">
+                  <span className="button-name-wrapper">
+                    <Link to ="/dashboard" className="button-name">Dashboard</Link>
+                  </span>
+                </button>
 
-            <button className="button-primary-with">
-              <span className="button-name-wrapper">
-                <Link to ="/signup" className="button-name">Sign up</Link>
-              </span>
-            </button>
+                <button className="button-primary-with" onClick={logoutHandler}>
+                  <span className="button-name-wrapper">
+                    <p className="button-name">Log Out</p>
+                  </span>
+                </button>
+              </>
+            )}
+            
           </div>
         </div>
 

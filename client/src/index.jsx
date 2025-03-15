@@ -33,18 +33,38 @@ function App() {
       <Route index element={<Desktop />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={<DashboardPreview />} />
+      <Route path="/dashboard" element={
+          <ProtectedRoute>
+            <DashboardPreview />
+          </ProtectedRoute>
+        } />
       <Route path="/account"
         element={
-          // <ProtectedRoute>
+          <ProtectedRoute>
             <Account />
-          // </ProtectedRoute>
+          </ProtectedRoute>
         }
       />
-      <Route path ="/settings" element={<Settings/>}/>
-      <Route path ="/itinerary" element={<Itinerary/>}/>
-      <Route path="/yourtrips" element={<YourTrips />} />
-      <Route path="/flights" element={<Flights/>}/>
+      <Route path ="/settings" element={
+          <ProtectedRoute>
+            <Settings />
+          </ProtectedRoute>
+        }/>
+      <Route path ="/itinerary" element={
+          <ProtectedRoute>
+            <Itinerary />
+          </ProtectedRoute>
+        }/>
+      <Route path="/yourtrips" element={
+          <ProtectedRoute>
+            <YourTrips />
+          </ProtectedRoute>
+        } />
+      <Route path="/flights" element={
+          <ProtectedRoute>
+            <Flights />
+          </ProtectedRoute>
+        }/>
 
 
     </Routes>
