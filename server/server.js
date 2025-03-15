@@ -7,7 +7,9 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://syntaxsharks-frontend.onrender.com"
+}));
 app.use(bodyParser.json());
 
 // -------------------
