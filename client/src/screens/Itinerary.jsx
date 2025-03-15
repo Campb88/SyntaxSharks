@@ -1,5 +1,5 @@
 import React from "react";
-import { Component } from "../components/Component.jsx";
+import { Component } from "../components/component.jsx";
 import { PropertyOutline } from "../components/PropertyOutline";
 import { SmallButtonFalse } from "../components/SmallButtonFalse";
 import { Icon1 } from "../icons/Icon1/Icon1";
