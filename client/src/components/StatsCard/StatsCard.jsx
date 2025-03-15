@@ -25,12 +25,6 @@ export const StatsCard = ({
           <div className="price">
             <div className="element">{text1}</div>
           </div>
-
-          <div className="growth">
-            <div className={`text-wrapper ${divClassName}`}>{text2}</div>
-
-            {icon}
-          </div>
         </div>
       </div>
     </div>

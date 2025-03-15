@@ -55,9 +55,6 @@ export const Itinerary = () => {
                     <div className="text-wrapper-2">Your Trips</div>
                 </Link>
                 
-                <div className="div-wrapper">
-                  <div className="text-wrapper-3a">32</div>
-                </div>
               </div>
 
               <div className="teamsa">
@@ -158,26 +155,12 @@ export const Itinerary = () => {
         <div className="bell">
           <div className="overlap">
             <IconOutlineBell1 className="icon-instance-node" />
-            <div className="group">
-              <div className="overlap-group">
-                <div className="ellipse" />
-
-                <div className="text-wrapper-8">6</div>
-              </div>
-            </div>
           </div>
         </div>
 
         <div className="mail">
           <div className="overlap">
             <IconOutlineMail1 className="icon-instance-node" />
-            <div className="group">
-              <div className="overlap-group">
-                <div className="ellipse" />
-
-                <div className="text-wrapper-8">2</div>
-              </div>
-            </div>
           </div>
         </div>
 

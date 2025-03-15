@@ -293,10 +293,6 @@ export const DashboardPreview = () => {
                 <Link to = "/yourtrips">
                   <div className="text-wrapper-4">Your Trips</div>
                 </Link>
-                
-                <div className="div-wrapper">
-                  <div className="text-wrapper-5">32</div>
-                </div>
               </div>
 
               {/* <div className="teams">
@@ -415,12 +411,6 @@ export const DashboardPreview = () => {
         <div className="mail">
           <div className="overlap">
             <IconOutlineMail1 className="icon-outline-mail" />
-            <div className="group">
-              <div className="overlap-group">
-                <div className="ellipse" />
-                <div className="text-wrapper-8">2</div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -448,39 +438,6 @@ export const DashboardPreview = () => {
           <div className="text-wrapper-9">
             Hey {user.username ? user.username : "Guest"}
           </div>
-        </div>
-
-        <div className="stats">
-          <StatsCard
-            cardClassName="stats-card-instance"
-            className="stats-card-1"
-            text="TOTAL TRIPS"
-          />
-          <StatsCard
-            cardClassName="stats-card-instance"
-            className="stats-card-1"
-            divClassName="stats-card-1-instance"
-            icon={<IconOutlineArrowDown1 className="icon-instance-node" />}
-            text="TIMES SPEND TRAVEL"
-            text1="$2,38,485"
-            text2="+ 14%"
-          />
-          <StatsCard
-            cardClassName="stats-card-instance"
-            className="stats-card-1"
-            icon={<IconOutlineArrowUp className="icon-instance-node" />}
-            text="TOTAL ORDERS"
-            text1="84,382"
-            text2="+ 36%"
-          />
-          <StatsCard
-            cardClassName="stats-card-instance"
-            className="stats-card-1"
-            icon={<IconOutlineArrowUp className="icon-instance-node" />}
-            text="TOTAL CUSTOMERS"
-            text1="33,493"
-            text2="+ 36%"
-          />
         </div>
       </div>
     </div>

@@ -50,9 +50,6 @@ export const Settings = () => {
                   <div className="text-wrapper-2">Your Trips</div>
                 </Link>
                 
-                <div className="frame">
-                  <div className="text-wrapper-3">32</div>
-                </div>
               </div>
 
               <div className="teams">
@@ -145,23 +142,11 @@ export const Settings = () => {
         <div className="bell">
           <div className="overlap">
             <IconOutlineBell1 className="icon-instance-node" />
-            <div className="group">
-              <div className="overlap-group">
-                <div className="ellipse" />
-                <div className="text-wrapper-7">6</div>
-              </div>
-            </div>
           </div>
         </div>
         <div className="mail">
           <div className="overlap">
             <IconOutlineMail1 className="icon-instance-node" />
-            <div className="group">
-              <div className="overlap-group">
-                <div className="ellipse" />
-                <div className="text-wrapper-7">2</div>
-              </div>
-            </div>
           </div>
         </div>
         <img

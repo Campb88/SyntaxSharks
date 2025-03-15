@@ -355,13 +355,12 @@ export const YourTrips = () => {
         <div className="div-3">
             <div className="text-wrapper-3">Menu</div>
             <div className="div-2">
-            <div className="dashboarda">
                 <Link to = "/dashboard">
-                    <TypeFiGridSize24ColorBlack className="icon" color="#191D23" />
-                    <div className="text-wrapper-4">Overview</div>
+                    <div className="dashboard">
+                                    <TypeFiGridSize24ColorBlack className="icon" color="#191D23" />
+                                    <div className="text-wrapper-4">Overview</div>
+                                  </div>
                 </Link>
-                
-            </div>
 
             <div className="div-4">
                 <Icon1 className="icon" color="#191D23" />
@@ -371,9 +370,6 @@ export const YourTrips = () => {
                 </div>
                     
                 </Link>
-                <div className="div-wrapper">
-                <div className="text-wrapper-5">32</div>
-                </div>
             </div>
 
             {/* <div className="teams">
@@ -491,12 +487,6 @@ export const YourTrips = () => {
         <div className="mail">
           <div className="overlap">
             <IconOutlineMail1 className="icon-outline-mail" />
-            <div className="group">
-              <div className="overlap-group">
-                <div className="ellipse" />
-                <div className="text-wrapper-8">2</div>
-              </div>
-            </div>
           </div>
         </div>
         <div className="logo-original">
