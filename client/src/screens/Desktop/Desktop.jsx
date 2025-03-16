@@ -6,7 +6,7 @@ import { Link } from "react-router";
 export const Desktop = () => {
 
   const { user } = useSelector(state => state.auth);
-
+  const dispatch = useDispatch();
     // Dispatches a logout and removes the userdata from localStorage to log in the user out.
   const logoutHandler = () => {
     dispatch(logout());
