@@ -2,7 +2,7 @@ import React from "react";
 import "./Desktop.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
-import { logout } from "../store/slices/authSlice";
+import { logout } from "../store/slices/authSlice.js";
 
 export const Desktop = () => {
 

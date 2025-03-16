@@ -15,7 +15,7 @@ import { TypeFiUsersSize24ColorBlack } from "../icons/TypeFiUsersSize24ColorBlac
 import "./dashboardpreview.css";
 import { Link, useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../store/slices/authSlice";
+import { logout } from "../store/slices/authSlice.js";
 import Places from "../utils/Places";
 import defaultUserImage from "../icons/DefaultUserImage.png";
 import { toast } from "react-hot-toast";
