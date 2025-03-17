@@ -71,7 +71,7 @@ const FlightSearch = () => {
   };
 
   // Function to fetch flight data using Aviationstack API
-  const fetchFlights = async (fromIataCode, toIataCode, departDate) => {
+  const fetchFlights = async (fromIataCode, toIataCode) => {
     try {
       const endpoint = `https://api.aviationstack.com/v1/flights?access_key=${aviationstackApiKey}&dep_iata=${fromIataCode}&arr_iata=${toIataCode}`;
 
@@ -115,7 +115,7 @@ const FlightSearch = () => {
 
   // Search for flights
   const searchFlights = async () => {
-    if (!from || !to || !departDate) {
+    if (!from || !to) {
       console.warn('Missing required fields: From, To, or Departure Date');
       return;
     }
@@ -132,8 +132,8 @@ const FlightSearch = () => {
       console.log('From Airport:', fromAirportData.name, fromAirportData.code);
       console.log('To Airport:', toAirportData.name, toAirportData.code);
 
-      const formattedDepartDate = new Date(departDate).toISOString().split('T')[0];
-      await fetchFlights(fromAirportData.code, toAirportData.code, formattedDepartDate);
+      //const formattedDepartDate = new Date(departDate).toISOString().split('T')[0];
+      await fetchFlights(fromAirportData.code, toAirportData.code);
     } catch (error) {
       console.error('Error searching for flights:', error);
       setFlights([]);
